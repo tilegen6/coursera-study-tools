@@ -1,0 +1,26 @@
+{
+  "name": "coursera-study-tools",
+  "version": "1.8.10",
+  "private": true,
+  "description": "Independent, readable Coursera browser study helper",
+  "scripts": {
+    "test": "node --test tests/core.test.cjs tests/course.test.cjs tests/assignments.test.cjs tests/bridge.test.cjs tests/quiz-images.test.cjs tests/quiz-batches.test.cjs tests/background.test.cjs tests/native.test.cjs tests/recovery.test.cjs tests/fast-videos.test.cjs tests/activity.test.cjs tests/popup.test.cjs",
+    "test:course": "node tests/course-browser.cjs",
+    "test:modern": "node tests/modern-browser.cjs",
+    "test:launcher": "node tests/launcher-smoke.cjs",
+    "test:native": "node tests/native-browser.cjs",
+    "test:recovery": "node tests/recovery-browser.cjs",
+    "test:offline": "node tests/offline-browser.cjs",
+    "test:installed": "node tests/installed-native.cjs",
+    "test:fast": "node tests/fast-browser.cjs",
+    "test:cloud": "node tests/cloud-smoke.cjs",
+    "bridge": "node bridge/server.cjs",
+    "package": "node scripts/package.cjs",
+    "test:policy": "node tests/quiz-only-browser.cjs",
+    "test:assessment-recovery": "node tests/assessment-recovery-browser.cjs",
+    "test:perfect": "node tests/perfect-score-browser.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.64.1"
+  }
+}

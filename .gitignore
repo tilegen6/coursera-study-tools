@@ -1,0 +1,13 @@
+node_modules/
+dist/
+output/
+.unlazy/
+.unlazy-hook-state.json
+.env
+.env.*
+!.env.example
+*.log
+.claude/settings.local.json
+GATES.md
+docs/gates-through-1.6.7.md
+docs/reliability-1.8.10.md

@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Coursera Study Tools",
+  "version": "1.8.10",
+  "description": "Материалы и тесты Coursera: решение, пересдачи до 100% и переходы. Остальные задания пропускаются.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "nativeMessaging"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1/*",
+    "https://*.coursera.org/*",
+    "https://coursera.org/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Coursera Study Tools",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.coursera.org/learn/*",
+        "https://coursera.org/learn/*"
+      ],
+      "js": [
+        "core.js",
+        "queue.js",
+        "fast-videos.js",
+        "activity.js",
+        "course.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+B"
+      },
+      "description": "Открыть учебного помощника"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coursera Study Tools</title>
+  <link rel="stylesheet" href="popup.css">
+  <script src="core.js" defer></script>
+  <script src="recovery.js" defer></script>
+  <script src="popup.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="wordmark"><span class="monogram" aria-hidden="true">ct.</span><span>STUDY TOOLS<br><small>COURSE COMPANION / 01</small></span></div>
+    <span class="tag">LOCAL</span>
+  </header>
+  <main>
+    <section class="current">
+      <p class="eyebrow">ВАШ УЧЕБНЫЙ СЕАНС</p>
+      <h1 id="title">Откройте материал курса</h1>
+      <div class="connection"><span id="dot"></span><span id="kind">Подключение к вкладке…</span><button class="text-button" id="refresh" aria-label="Обновить подключение">↻</button></div>
+    </section>
+    <p id="feedback" class="feedback" role="status" aria-live="polite">Загрузка…</p>
+    <section class="tools" aria-labelledby="automation-title">
+      <div class="section-title"><h2 id="automation-title">Прохождение курса</h2><span>01</span></div>
+      <button id="run-course" class="primary wide" data-connected>Пройти курс автоматически</button>
+      <p class="hint">Материалы → тест → решение → отправка → следующий урок. Сеанс продолжается после загрузки страниц; кнопка «Стоп» отменяет дальнейшие действия.</p>
+      <div class="speed-row"><label for="speed">Скорость видео</label><select id="speed"><option value="1">1×</option><option value="1.25">1,25×</option><option value="1.5" selected>1,5×</option><option value="1.75">1,75×</option><option value="2">2×</option></select><button id="apply-speed" class="small" data-connected>Применить</button></div>
+      <label class="check"><input type="checkbox" id="auto-next" checked><span>Переходить к следующему материалу</span></label>
+      <label class="check"><input type="checkbox" id="skip-video"><span>Быстро завершать видео в фоне</span></label>
+      <label class="check"><input type="checkbox" id="resume-queue"><span>Продолжить сохранённую очередь этого аккаунта</span></label>
+      <div class="run-row"><button id="start" data-connected>Только материалы</button><button id="stop" data-connected>Стоп</button></div>
+      <div class="quick-actions"><button id="complete" data-connected>Завершить материал</button><button id="next" data-connected>Далее →</button><button id="skip" data-connected>В конец видео</button></div>
+      <label class="check"><input type="checkbox" id="auto-honor-code"><span>Автоматически подтверждать Кодекс чести в тестах</span></label>
+      <p class="hint">Включая этот пункт, вы разрешаете боту отмечать флажок Кодекса чести перед отправкой теста. Имя, подпись и другие соглашения не заполняются.</p>
+      <label class="check"><input type="checkbox" id="target-100" checked><span>Повторять тесты до 100%</span></label>
+      <p class="hint">При оценке ниже 100% бот читает разбор ошибок и открывает новую попытку. Если попытки закончились, ждёт и продолжает другие материалы.</p>
+      <p class="hint">Лабораторные, программирование, письменные задания, peer-review и Coach пропускаются.</p>
+      <details><summary>Очередь тестов и пропуски</summary><p id="queue-summary" class="hint">Очередь пуста</p><button id="check-queue" data-connected>Проверить очередь сейчас</button><ol id="queue-items"></ol></details>
+    </section>
+    <details id="quiz-section">
+      <summary><span>Работа с тестом</span><span class="section-index">02</span></summary>
+      <div class="details-body">
+        <button id="solve" class="primary wide" data-connected>Решить автоматически</button>
+        <p class="hint">«Решить автоматически» заполняет поля без отправки. В полном режиме курса тесты отправляются и курс продолжается автоматически. Используются лимиты подписки ChatGPT.</p>
+        <details class="solver-settings">
+          <summary>Подключение Codex</summary>
+          <p class="hint">После однократного запуска Start-Bridge.cmd сервис подключается автоматически при запуске курса, в том числе после перезапуска.</p>
+          <button id="connect-solver" class="wide">Проверить автоподключение</button>
+          <p id="solver-connection" class="hint" role="status"></p>
+          <details><summary>Диагностика подключения</summary><pre id="connection-diagnostics"></pre></details>
+          <details><summary>Ручное подключение для диагностики</summary>
+          <label for="bridge-token">Код подключения</label>
+          <input id="bridge-token" type="password" autocomplete="off" spellcheck="false" placeholder="Код из окна запуска">
+          <button id="connect-manual" class="wide">Сохранить и проверить</button>
+          </details>
+        </details>
+      </div>
+    </details>
+    <details>
+      <summary><span>Журнал сеанса</span><span class="section-index">03</span></summary>
+      <ol id="logs"><li>Пока нет действий</li></ol>
+    </details>
+  </main>
+  <footer><span>Читаемый код. Облачный решатель.</span><span id="extension-version"></span></footer>
+</body>
+</html>
